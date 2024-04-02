@@ -12,13 +12,19 @@ namespace ConsoleApp1
     class Class1
     {
         public GameWindow windows;
-        private Television3D television3D;
+        private Television3D television1;
+        private Television3D television2;
+        private Television3D television3;
         private float rotationAngle = 0.0f;
 
-        public  Class1(GameWindow windowsInput)
+        public Class1(GameWindow windowsInput)
         {
-            this.windows= windowsInput;
-            television3D = new Television3D(); // Instancia de Television3D
+            this.windows = windowsInput;
+
+            // Crear dos instancias de Television3D con diferentes orígenes
+            television1 = new Television3D(0.0f, 0.0f, 0.0f); // Origen en (0, 0, 0)
+            television2 = new Television3D(5.0f, 0.0f, 5.0f); // Origen en (5, 0, 5)
+            television3 = new Television3D(5.0f, 0.0f, -5.0f); // Origen en (5, 0, 5)
 
             windows.Load += windows_Load;
             windows.RenderFrame += Windows_RenderFrame;
@@ -48,7 +54,7 @@ namespace ConsoleApp1
 
         private void Windows_UpdateFrame(object sender, FrameEventArgs e)
         {
-            
+
         }
 
         private void Windows_RenderFrame(object sender, FrameEventArgs e)
@@ -65,7 +71,11 @@ namespace ConsoleApp1
             GL.Rotate(-5.0f, 1.0f, 0.0f, 0.0f); // Inclina la vista hacia abajo
             GL.Rotate(40.0f + rotationAngle, 0.0f, 1.0f, 0.0f); // Rota la vista hacia un ángulo lateral
 
-            television3D.Draw();
+            // Dibujar las televisiones desde sus respectivos puntos de origen
+            television1.Draw();
+            television2.Draw();
+            television3.Draw();
+
             windows.SwapBuffers();
         }
 
