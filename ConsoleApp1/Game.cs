@@ -9,29 +9,18 @@ using System.Drawing;
 
 namespace ConsoleApp1
 {
-    class Class1
+    public class Game : GameWindow
     {
-        public GameWindow windows;
         private Television3D television1, television2, television3, television4, television5;
-
         private float rotationAngle = 0.0f;
 
-        public Class1(GameWindow windowsInput)
+        public Game() : base(800, 600) // Constructor que define el tamaño de la ventana
         {
-            this.windows = windowsInput;
-
-            // Crear dos instancias de Television3D con diferentes orígenes
             television1 = new Television3D(0.0f, 0.0f, 0.0f); // Origen en (0, 0, 0)
             television2 = new Television3D(13.0f, 0.0f, 0.0f); // Origen en (13, 0, 5)
             television3 = new Television3D(-13.0f, 0.0f, 0.0f); // Origen en (-13, 0, 0)
             television4 = new Television3D(7.0f, 0.0f, -7.0f); // Origen en (6, 0, -7)
             television5 = new Television3D(-7.0f, 0.0f, -7.0f); // Origen en (-6, 0, -7)
-
-            windows.Load += windows_Load;
-            windows.RenderFrame += Windows_RenderFrame;
-            windows.UpdateFrame += Windows_UpdateFrame;
-            windows.Closing += Windows_Closing;
-            windows.KeyDown += Windows_KeyDown;
         }
 
         private void Windows_KeyDown(object sender, OpenTK.Input.KeyboardKeyEventArgs e)
@@ -47,46 +36,52 @@ namespace ConsoleApp1
                     break;
             }
         }
-        private void Windows_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
-            // Cerrar la aplicación
-            windows.Exit();
+            base.OnLoad(e);
+
+            GL.ClearColor(Color.FromArgb(135, 206, 235));
+            GL.Enable(EnableCap.DepthTest); // Profundidad
         }
 
-        private void Windows_UpdateFrame(object sender, FrameEventArgs e)
+        protected override void OnUpdateFrame(FrameEventArgs e)
         {
+            base.OnUpdateFrame(e);
 
+            rotationAngle += 6.5f * (float)e.Time; // Rotación
         }
 
-        private void Windows_RenderFrame(object sender, FrameEventArgs e)
+        protected override void OnRenderFrame(FrameEventArgs e)
         {
+            base.OnRenderFrame(e);
+
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             GL.MatrixMode(MatrixMode.Projection);
             GL.LoadIdentity();
-            GL.Frustum(-1.0, 1.0, -1.0, 1.0, 1.0, 100.0); // Configura la proyección perspectiva
+            GL.Frustum(-1.0, 1.0, -1.0, 1.0, 1.0, 100.0); // Proyección perspectiva
             GL.MatrixMode(MatrixMode.Modelview);
             GL.LoadIdentity();
 
             // Posiciona y orienta la cámara
-            GL.Translate(0.0f, 0.0f, -18.0f); // Mueve la cámara hacia atrás
-            GL.Rotate(-5.0f, 1.0f, 0.0f, 0.0f); // Inclina la vista hacia abajo
+            GL.Translate(0.0f, 0.0f, -15.0f); // Mueve la cámara hacia atrás
+            GL.Rotate(20.0f, 1.0f, 0.0f, 0.0f); // Inclina la vista hacia abajo
             GL.Rotate(40.0f + rotationAngle, 0.0f, 1.0f, 0.0f); // Rota la vista hacia un ángulo lateral
 
-            // Dibujar las televisiones desde sus respectivos puntos de origen
             television1.Draw();
             television2.Draw();
             television3.Draw();
             television4.Draw();
             television5.Draw();
 
-            windows.SwapBuffers();
+            SwapBuffers();
         }
 
-        void windows_Load(object sender, EventArgs e)
+        protected override void OnResize(EventArgs e)
         {
-            GL.ClearColor(Color.FromArgb(5, 5, 25));
-            GL.Enable(EnableCap.DepthTest); // Habilita el test de profundidad para objetos 3D
+            base.OnResize(e);
 
+            // Ajustar la vista en caso de que se redimensione la ventana
+            GL.Viewport(0, 0, Width, Height);
         }
     }
 }
