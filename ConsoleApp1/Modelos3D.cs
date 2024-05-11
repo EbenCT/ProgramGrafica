@@ -18,14 +18,14 @@ namespace ConsoleApp1
 
             Cara pantalla=new Cara();
             Vertice[] v1 = {
-                new Vertice(- 5.5, - 3.0, 0.0),
-                new Vertice(5.5, -3, 0),
-                new Vertice(5.5, -3, 0),
-                new Vertice(5.5, 3.5, 0),
-                new Vertice(5.5, 3.5, 0),
-                new Vertice(-5.5, 3.5, 0),
-                new Vertice(- 5.5, - 3.0, 0.0),
-                new Vertice(-5.5, 3.5, 0),
+                new Vertice(- 5.5f, - 3.0f, 0.0f),
+                new Vertice(5.5f, -3, 0f),
+                new Vertice(5.5f, -3, 0f),
+                new Vertice(5.5f, 3.5f, 0f),
+                new Vertice(5.5f, 3.5f, 0f),
+                new Vertice(-5.5f, 3.5f, 0f),
+                new Vertice(- 5.5f, - 3.0f, 0.0f),
+                new Vertice(-5.5f, 3.5f, 0f),
             };
             Cara Cuerpo = new Cara();
             Vertice[] v2 = {
@@ -72,34 +72,34 @@ namespace ConsoleApp1
             };
             Cara Base = new Cara();
             Vertice[] v3 = {
-                new Vertice(-1, -5, -0.75),
-                new Vertice(1, -5, -0.75),
-                new Vertice(1, -6, -0.75),
-                new Vertice(-1, -6, -0.75),
+                new Vertice(-1, -5, -0.75f),
+                new Vertice(1, -5, -0.75f),
+                new Vertice(1, -6, -0.75f),
+                new Vertice(-1, -6, -0.75f),
 
-                new Vertice(-1, -5, -0.25),
-                new Vertice(1, -5, -0.25),
-                new Vertice(1, -6, -0.25),
-                new Vertice(-1, -6, -0.25),
+                new Vertice(-1, -5, -0.25f),
+                new Vertice(1, -5, -0.25f),
+                new Vertice(1, -6, -0.25f),
+                new Vertice(-1, -6, -0.25f),
 
-                new Vertice(-1, -5, -0.25),
-                new Vertice(-1, -5, -0.75),
-                new Vertice(1, -5, -0.25),
-                new Vertice(1, -5, -0.75),
+                new Vertice(-1, -5, -0.25f),
+                new Vertice(-1, -5, -0.75f),
+                new Vertice(1, -5, -0.25f),
+                new Vertice(1, -5, -0.75f),
 
-                new Vertice(-1, -6, -0.25),
-                new Vertice(-1, -6, -0.75),
-                new Vertice(1, -6, -0.25),
-                new Vertice(1, -6, -0.75),
+                new Vertice(-1, -6, -0.25f),
+                new Vertice(-1, -6, -0.75f),
+                new Vertice(1, -6, -0.25f),
+                new Vertice(1, -6, -0.75f),
 
-                new Vertice(-1, -5, -0.25),
-                new Vertice(-1, -6, -0.25),
-                new Vertice(1, -6, -0.25),
-                new Vertice(1, -5, -0.25),
-                new Vertice(-1, -5, -0.75),
-                new Vertice(-1, -6, -0.75),
-                new Vertice(1, -6, -0.75),
-                new Vertice(1, -5, -0.75)
+                new Vertice(-1, -5, -0.25f),
+                new Vertice(-1, -6, -0.25f),
+                new Vertice(1, -6, -0.25f),
+                new Vertice(1, -5, -0.25f),
+                new Vertice(-1, -5, -0.75f),
+                new Vertice(-1, -6, -0.75f),
+                new Vertice(1, -6, -0.75f),
+                new Vertice(1, -5, -0.75f)
             };
             Cara plataforma = new Cara();
             Vertice[] v4 =
@@ -215,44 +215,44 @@ namespace ConsoleApp1
             {
                 //Hoja1
                 new Vertice(0.5f, 2f, 0f),    // A
-                new Vertice(0.2, 2f, -0.5),  // B
+                new Vertice(0.2f, 2f, -0.5f),  // B
                 new Vertice(0.5f, 2f, 0f),    // A
-                new Vertice(0.2, 2f, 0.5),  // B
+                new Vertice(0.2f, 2f, 0.5f),  // B
 
                 new Vertice(0.5f, 2f, 0f),    // A
                 new Vertice(1f, 4f, 0f),    // A
 
-                new Vertice(0.2, 2f, -0.5),  // B
-                new Vertice(0.5, 3f, -0.7),  // B
+                new Vertice(0.2f, 2f, -0.5f),  // B
+                new Vertice(0.5f, 3f, -0.7f),  // B
 
-                new Vertice(0.5, 3f, -0.7),  // B
+                new Vertice(0.5f, 3f, -0.7f),  // B
                 new Vertice(1f, 4f, 0f),    // A
 
-                new Vertice(0.2, 2f, 0.5),  // B
-                new Vertice(0.5, 3f, 0.7),  // B
+                new Vertice(0.2f, 2f, 0.5f),  // B
+                new Vertice(0.5f, 3f, 0.7f),  // B
 
-                new Vertice(0.5, 3f, 0.7),  // B
+                new Vertice(0.5f, 3f, 0.7f),  // B
                 new Vertice(1f, 4f, 0f),    // A
 
                 //Hoja2
                 new Vertice(-0.5f, 2f, 0f),    // A
-                new Vertice(-0.2, 2f, -0.5),  // B
+                new Vertice(-0.2f, 2f, -0.5f),  // B
                 new Vertice(-0.5f, 2f, 0f),    // A
-                new Vertice(-0.2, 2f, 0.5),  // B
+                new Vertice(-0.2f, 2f, 0.5f),  // B
 
                 new Vertice(-0.5f, 2f, 0f),    // A
                 new Vertice(-1f, 4f, 0f),    // A
 
-                new Vertice(-0.2, 2f, -0.5),  // B
-                new Vertice(-0.5, 3f, -0.7),  // B
+                new Vertice(-0.2f, 2f, -0.5f),  // B
+                new Vertice(-0.5f, 3f, -0.7f),  // B
 
-                new Vertice(-0.5, 3f, -0.7),  // B
+                new Vertice(-0.5f, 3f, -0.7f),  // B
                 new Vertice(-1f, 4f, 0f),    // A
 
-                new Vertice(-0.2, 2f, 0.5),  // B
-                new Vertice(-0.5, 3f, 0.7),  // B
+                new Vertice(-0.2f, 2f, 0.5f),  // B
+                new Vertice(-0.5f, 3f, 0.7f),  // B
 
-                new Vertice(-0.5, 3f, 0.7),  // B
+                new Vertice(-0.5f, 3f, 0.7f),  // B
                 new Vertice(-1f, 4f, 0f),    // A
 
                 //flor
@@ -362,23 +362,23 @@ namespace ConsoleApp1
             Cara frente = new Cara();
             Vertice[] v1 =
             {
-                new Vertice(0.0,0.0,0.0),
-                new Vertice(0.0,7.0,0.0),
-                new Vertice(0.0,0.0,0.0),
-                new Vertice(3.0,0.0,0.0),
-                new Vertice(3.0,0.0,0.0),
-                new Vertice(3.0,7.0,0.0),
-                new Vertice(3.0,7.0,0.0),
-                new Vertice(0.0,7.0,0.0),
+                new Vertice(0.0f,0.0f,0.0f),
+                new Vertice(0.0f,7.0f,0.0f),
+                new Vertice(0.0f,0.0f,0.0f),
+                new Vertice(3.0f,0.0f,0.0f),
+                new Vertice(3.0f,0.0f,0.0f),
+                new Vertice(3.0f,7.0f,0.0f),
+                new Vertice(3.0f,7.0f,0.0f),
+                new Vertice(0.0f,7.0f,0.0f),
 
-                new Vertice(0.3, 0.3, 0.0),
-                new Vertice(0.3, 6.7, 0.0),
-                new Vertice(0.3, 0.3, 0.0),
-                new Vertice(2.7, 0.3, 0.0),
-                new Vertice(2.7, 0.3, 0.0),
-                new Vertice(2.7, 6.7, 0.0),
-                new Vertice(2.7, 6.7, 0.0),
-                new Vertice(0.3, 6.7, 0.0),
+                new Vertice(0.3f, 0.3f, 0.0f),
+                new Vertice(0.3f, 6.7f, 0.0f),
+                new Vertice(0.3f, 0.3f, 0.0f),
+                new Vertice(2.7f, 0.3f, 0.0f),
+                new Vertice(2.7f, 0.3f, 0.0f),
+                new Vertice(2.7f, 6.7f, 0.0f),
+                new Vertice(2.7f, 6.7f, 0.0f),
+                new Vertice(0.3f, 6.7f, 0.0f),
 
                 //Bocinas
                 new Vertice(0.7f, 4.8f, 0.0f),    // A
@@ -439,30 +439,30 @@ namespace ConsoleApp1
             Cara cuerpo = new Cara();
             Vertice[] v2 =
             {
-                new Vertice(0.0, 0.0, -2.0),
-                new Vertice(0.0,0.0,0.0),
-                new Vertice(0.0, 7.0, -2.0),
-                new Vertice(0.0,7.0,0.0),
-                new Vertice(0.0, 0.0, -2.0),
-                new Vertice(0.0,0.0,0.0),
-                new Vertice(3.0, 0.0, -2.0),
-                new Vertice(3.0,0.0,0.0),
-                new Vertice(3.0, 0.0, -2.0),
-                new Vertice(3.0,0.0,0.0),
-                new Vertice(3.0, 7.0, -2.0),
-                new Vertice(3.0,7.0,0.0),
-                new Vertice(3.0, 7.0, -2.0),
-                new Vertice(3.0,7.0,0.0),
-                new Vertice(0.0, 7.0, -2.0),
-                new Vertice(0.0,7.0,0.0),
-                new Vertice(0.0, 0.0, -2.0),
-                new Vertice(0.0, 7.0, -2.0),
-                new Vertice(0.0, 0.0, -2.0),
-                new Vertice(3.0, 0.0, -2.0),
-                new Vertice(3.0, 0.0, -2.0),
-                new Vertice(3.0, 7.0, -2.0),
-                new Vertice(3.0, 7.0, -2.0),
-                new Vertice(0.0, 7.0, -2.0)
+                new Vertice(0.0f, 0.0f, -2.0f),
+                new Vertice(0.0f,0.0f,0.0f),
+                new Vertice(0.0f, 7.0f, -2.0f),
+                new Vertice(0.0f,7.0f,0.0f),
+                new Vertice(0.0f, 0.0f, -2.0f),
+                new Vertice(0.0f,0.0f,0.0f),
+                new Vertice(3.0f, 0.0f, -2.0f),
+                new Vertice(3.0f,0.0f,0.0f),
+                new Vertice(3.0f, 0.0f, -2.0f),
+                new Vertice(3.0f,0.0f,0.0f),
+                new Vertice(3.0f, 7.0f, -2.0f),
+                new Vertice(3.0f,7.0f,0.0f),
+                new Vertice(3.0f, 7.0f, -2.0f),
+                new Vertice(3.0f,7.0f,0.0f),
+                new Vertice(0.0f, 7.0f, -2.0f),
+                new Vertice(0.0f,7.0f,0.0f),
+                new Vertice(0.0f, 0.0f, -2.0f),
+                new Vertice(0.0f, 7.0f, -2.0f),
+                new Vertice(0.0f, 0.0f, -2.0f),
+                new Vertice(3.0f, 0.0f, -2.0f),
+                new Vertice(3.0f, 0.0f, -2.0f),
+                new Vertice(3.0f, 7.0f, -2.0f),
+                new Vertice(3.0f, 7.0f, -2.0f),
+                new Vertice(0.0f, 7.0f, -2.0f)
             };
 
             frente.LoadVertices(v1);

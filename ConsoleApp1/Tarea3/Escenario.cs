@@ -19,12 +19,33 @@ namespace ConsoleApp1.Tarea3
         {
             objetos.Add(nombre, objeto);
         }
-
+        public void Trasladar(float x, float y, float z)
+        {
+            foreach (Objeto objeto in objetos.Values)
+            {
+                objeto.Trasladar(x, y, z);
+            }
+        }
+        public void Escalar(float n)
+        {
+            foreach (Objeto objeto in objetos.Values)
+            {
+                objeto.Escalar(n);
+            }
+        }
+        public void Rotar(string eje, float angulo)
+        {
+            foreach (Objeto objeto in objetos.Values)
+            {
+                objeto.Rotar(eje, angulo);
+            }
+        }
         public void Dibujar()
         {
             foreach (Objeto objeto in objetos.Values)
             {
-                objeto.Dibujar(originX, originY, originZ);
+                objeto.Trasladar(originX, originY, originZ);
+                objeto.Dibujar();
             }
         }
     }

@@ -8,11 +8,11 @@ namespace ConsoleApp1.Tarea3
 {
     public class Vertice
     {
-        public double X { get; set; }
-        public double Y { get; set; }
-        public double Z { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
+        public float Z { get; set; }
 
-        public Vertice(double x, double y, double z)
+        public Vertice(float x, float y, float z)
         {
             X = x;
             Y = y;

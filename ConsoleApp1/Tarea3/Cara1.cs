@@ -14,6 +14,8 @@ namespace ConsoleApp1.Tarea3
         // Lista de vértices que forman la cara.
         public List<Vertice> Vertices { get; set; }
 
+        private Matrix4 MatrizTransformacion=Matrix4.Identity;
+
         // Constructor de la clase Cara.
         public Cara()
         {
@@ -21,8 +23,27 @@ namespace ConsoleApp1.Tarea3
             Vertices = new List<Vertice>();
         }
 
+        public void Trasladar(float x, float y, float z)
+        {
+            MatrizTransformacion = Matrix4.Mult(MatrizTransformacion, Matrix4.CreateTranslation(x, y, z));
+        }
+
+        public void Escalar(float n)
+        {
+            MatrizTransformacion = Matrix4.Mult(MatrizTransformacion, Matrix4.CreateScale(n));
+        }
+        public void Rotar(string eje, float angulo)
+        {
+            float radians = MathHelper.DegreesToRadians(angulo);
+            if (eje == "x")
+                MatrizTransformacion = Matrix4.Mult(MatrizTransformacion, Matrix4.CreateRotationX(radians));
+            else if (eje == "y")
+                MatrizTransformacion = Matrix4.Mult(MatrizTransformacion, Matrix4.CreateRotationY(radians));
+            else if (eje == "z")
+                MatrizTransformacion = Matrix4.Mult(MatrizTransformacion, Matrix4.CreateRotationZ(radians));
+        }
         // Método para dibujar la cara.
-        public void Draw(float X, float Y, float Z)
+        public void Draw()
         {
             // Comienza el dibujo de la cara como un polígono.
             GL.Begin(PrimitiveType.Lines);
@@ -33,11 +54,14 @@ namespace ConsoleApp1.Tarea3
             // Itera sobre los vértices y los dibuja.
             foreach (Vertice vertex in Vertices)
             {
-                GL.Vertex3(X+ vertex.X, Y+ vertex.Y, Z+ vertex.Z);
+                Vector4 Trasformado = Vector4.Transform(new Vector4(vertex.X, vertex.Y, vertex.Z, 1), MatrizTransformacion);
+                GL.Vertex4(Trasformado);
             }
 
             // Finaliza el dibujo del polígono.
             GL.End();
+
+            MatrizTransformacion = Matrix4.Identity;
         }
 
         // Método para establecer el color de la cara.
