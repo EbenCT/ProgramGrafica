@@ -6,21 +6,27 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenTK.Graphics.OpenGL;
 using System.Drawing;
+using ConsoleApp1.Tarea3;
+using Newtonsoft.Json;
+using System.IO;
+using System.Threading;
+
 
 namespace ConsoleApp1
 {
     public class Game : GameWindow
     {
-        private Television3D television1, television2, television3, television4, television5;
+        private Escenario Escenario1;
+        private Escenario Escenario2;
         private float rotationAngle = 0.0f;
+        private float angulo = 0.0f;
 
         public Game() : base(800, 600) // Constructor que define el tamaño de la ventana
         {
-            television1 = new Television3D(0.0f, 0.0f, 0.0f); // Origen en (0, 0, 0)
-            television2 = new Television3D(13.0f, 0.0f, 0.0f); // Origen en (13, 0, 5)
-            television3 = new Television3D(-13.0f, 0.0f, 0.0f); // Origen en (-13, 0, 0)
-            television4 = new Television3D(7.0f, 0.0f, -7.0f); // Origen en (6, 0, -7)
-            television5 = new Television3D(-7.0f, 0.0f, -7.0f); // Origen en (-6, 0, -7)
+           
+            // Leer el archivo
+            string jsonText = File.ReadAllText("C:/Users/bokyn/source/repos/ConsoleApp1/ConsoleApp1/Tarea4/escenario.txt");
+            Escenario2= JsonConvert.DeserializeObject<Escenario>(jsonText);
         }
 
         private void Windows_KeyDown(object sender, OpenTK.Input.KeyboardKeyEventArgs e)
@@ -48,7 +54,7 @@ namespace ConsoleApp1
         {
             base.OnUpdateFrame(e);
 
-            rotationAngle += 6.5f * (float)e.Time; // Rotación
+            rotationAngle += 6f * (float)e.Time; // Rotación
         }
 
         protected override void OnRenderFrame(FrameEventArgs e)
@@ -67,12 +73,14 @@ namespace ConsoleApp1
             GL.Rotate(20.0f, 1.0f, 0.0f, 0.0f); // Inclina la vista hacia abajo
             GL.Rotate(40.0f + rotationAngle, 0.0f, 1.0f, 0.0f); // Rota la vista hacia un ángulo lateral
 
-            television1.Draw();
-            television2.Draw();
-            television3.Draw();
-            television4.Draw();
-            television5.Draw();
+            //Escenario1.Dibujar();
+            Escenario2.Dibujar();
+            Escenario2.Rotar("z", angulo);
+            //Escenario2.Escalar(0.5f);
+            //Escenario2.Trasladar(angulo, 0, 0);
 
+            angulo += 1f;
+            if (angulo > 360f) angulo = 0.0f;
             SwapBuffers();
         }
 
